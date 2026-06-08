@@ -5,21 +5,21 @@ A lightweight, configurable data processing pipeline engine built in Python, ins
 The Function Pipeline Engine allows you to compose a sequence of transformation steps into a reusable pipeline. Each step is a plain function registered via a decorator, and the pipeline executes them in order — passing the output of one step as the input to the next.
 
 ## Features
-- Register pipeline steps using @pipeline.step — an instance method decorator
+- Register pipeline steps using `@pipeline.step` — an instance method decorator
 - Three execution strategies for error handling:
-    - fail_fast — stops immediately on the first error
-    - collect_errors — runs all steps, collects errors, continues with previous data on failure
-    - skip_on_failure — silently skips failed steps and continues with previous data
-- Automatic timing and logging via @timer and @logger decorators
-- Full type hints throughout using TypeVar, Callable, Literal, and TypeAlias
+    - `fail_fast` — stops immediately on the first error
+    - `collect_errors` — runs all steps, collects errors, continues with previous data on failure
+    - `skip_on_failure` — silently skips failed steps and continues with previous data
+- Automatic timing and logging via `@timer` and `@logger` decorators
+- Full type hints throughout using `TypeVar`, `Callable`, `Literal`, and `TypeAlias`
 - Strategy dispatch table for clean, extensible strategy selection
-- Strategy validation in Pipeline.__init__ with helpful error messages
+- Strategy validation in `Pipeline.__init__` with helpful error messages
 - Includes a test suite covering all strategies and edge cases
 
 ## Concepts Demonstrated
 - First-class functions, higher-order functions, and dispatch tables
-- Type hints with TypeVar, Callable, Literal, and TypeAlias 
-- Decorators, closures, and functools.wraps 
+- Type hints with `TypeVar`, `Callable`, `Literal`, and `TypeAlias` 
+- Decorators, closures, and `functools.wraps` 
 - Strategy pattern and decorator registry with plain functions 
 
 ## Usage
