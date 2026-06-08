@@ -47,6 +47,7 @@ result = pipeline.run('  Hello, World!  ')
 ## File Structure
 ```
 pipeline/
+    protocols.py    # Processable protocol — shared type definitions
     decorators.py   # @timer, @logger decorators
     strategies.py   # fail_fast, collect_errors, skip_on_failure
     pipeline.py     # Pipeline class
