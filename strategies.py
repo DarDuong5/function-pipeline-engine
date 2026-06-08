@@ -1,9 +1,10 @@
-from typing import Callable, Mapping, TypeVar
+from typing import Mapping, TypeVar
+from protocols import Processable
 
 errors = []
 T = TypeVar('T')
 
-def fail_fast(func: Callable, data: T) -> T:
+def fail_fast(func: Processable, data: T) -> T:
     """
     Purpose: Raises the first error from a given call and ends the entire pipeline call. 
     """
@@ -12,7 +13,7 @@ def fail_fast(func: Callable, data: T) -> T:
     except Exception:
         raise
 
-def collect_errors(func: Callable, data: T) -> T:
+def collect_errors(func: Processable, data: T) -> T:
     """
     Purpose: Stores any errors any calls have in the pipeline but will continue running with previous data.
     """
@@ -23,7 +24,7 @@ def collect_errors(func: Callable, data: T) -> T:
         errors.append(error)
         return data
 
-def skip_on_failure(func: Callable, data: T) -> T:
+def skip_on_failure(func: Processable, data: T) -> T:
     """
     Purpose: Skips calls with failures and continues running next calls with previous data.
     """

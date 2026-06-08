@@ -1,7 +1,6 @@
 from typing import Sequence, TypeVar, NoReturn
-
 from pipeline import Pipeline
-from strategies import dispatch_table, errors
+from strategies import errors
 from decorators import logger, timer, logs
 
 S = TypeVar('S')

@@ -1,7 +1,10 @@
-from typing import Callable, Any, Literal
+from typing import Any, Literal
 from strategies import dispatch_table
+from protocols import Processable
 
 StrategyLiteral = Literal['fail_fast', 'collect_errors', 'skip_on_failure']
+
+
 
 class Pipeline:
     def __init__(self, strategy: StrategyLiteral) -> None:
@@ -16,7 +19,7 @@ class Pipeline:
     def __repr__(self):
         return f'<Pipeline(calls: {self.calls}, strategy: {self.strategy})>'
 
-    def step(self, func: Callable) -> Callable:
+    def step(self, func: Processable) -> Processable:
         """
         Instance method decorator
         Purpose: Appends given function object onto the call pipeline.
